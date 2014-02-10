@@ -1148,6 +1148,14 @@ hr {
     font-style:italic;
     font-size: 16px;
 }
+.clickme{
+    padding:0.5em;
+    background: lightblue;
+
+}
+.logoN{
+    padding:0.5em;
+}
 
 /* Helpful Typography Defaults */
 em,
@@ -4400,6 +4408,13 @@ ul.pagination {
   margin-bottom: 2.5em;
   margin-top: 3.5em;
   padding:1em;
+ font-family: 'Raleway', sans-serif;
+  font-size: 1.1em;
+  height:auto;
+}
+.tagpanel{
+  margin-top: 1.5em;
+  padding:0.5em;
  font-family: 'Raleway', sans-serif;
   font-size: 1.1em;
   height:auto;
