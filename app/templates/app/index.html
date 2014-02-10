@@ -1,0 +1,40 @@
+{% extends "app/base.html" %}
+{% load taggit_extras %}
+
+
+{% block content %}
+<!-- autoescape is a django tag which is helping with security.-->
+{% autoescape off %}
+
+        <!-- Posts, Left side -->
+        <div class="large-9 columns large-offset-1 blogpanel left">
+        {% for post in posts %}
+            <h3>{{  post.title  }}</h3>
+        <p> {{ post.body|truncatewords:70}}</p>
+       <div><a class="continuexs" href="/post/{{ post.slug }}">continue --></a></div>
+             <hr>
+    {% endfor %}
+
+        <!-- End of posts -->
+
+    <!--pagination.-->
+{% if posts.has_other_pages %}
+   <div>
+     <ul class="pagination">
+        {% if posts.has_previous %}
+            <li><a href="?page={{ posts.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% for page in posts.paginator.page_range %}
+            <li><a href="?page={{ page }}">{{ page }}</a></li>
+        {% endfor %}
+        {% if posts.has_next %}
+            <li><a href="?page={{ posts.next_page_number }}">Next</a></li>
+        {% endif %}
+     </ul>
+   </div>
+{% endif %}
+ </div>
+
+{% endautoescape %}
+{% endblock %}
+

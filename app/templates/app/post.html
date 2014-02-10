@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<!-- autoescape is a django tag which is helping with security.-->
+{% autoescape off %}
+
+  <div class="large-8 columns blogpanel left">
+            <h3>{{  singlepost.title  }}</h3>
+        <p> {{ singlepost.body}}</p>
+
+        </div>
+
+
+{% endautoescape %}
+{% endblock %}

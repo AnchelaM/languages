@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <title>GlobalXplorer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+
+        <!-- STATIC_URL is a django shortcut.-->
+   <link href="{{ STATIC_URL }}css/foundation.css" rel="stylesheet">
+   <link href="{{ STATIC_URL }}css/normalize.css" rel="stylesheet">
+   <script src="{{ STATIC_URL }}js/vendor/custom.modernizr.js"></script>
+   <script src="{{ STATIC_URL}}js/foundation/foundation.topbar.js"></script>
+
+    <!-- Fonts from google -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+ <!-- Navigation -->
+<div class="contain-to-grid sticky">
+  <nav class="top-bar">
+    <ul class="title-area">
+        <div class="logo"><a href="/"><img src="{{ STATIC_URL }}images/logoN.png" alt="Logo Global eXplorer"></a></div>
+      <li class="name">
+        <h1>
+          <a href="/">
+              Global
+               Xplorer
+          </a>
+        </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="left">
+        <li><a href="/">Blog</a></li>
+        <li><a href="/about">About</a></li>
+          </ul>
+        <ul class="right">
+        <li><a href="">Search box</a></li>
+        <li><a href="">FB / G+ / </a></li>
+          </ul>
+
+    </section>
+  </nav>
+    </div>
+
+  <!-- End Top Bar -->
+
+ <!--Orbit slide panel -->
+
+            <div class="slidepanel">
+                <div class="orbit-container">
+                <ul data-orbit
+                data-options="animation: fade;
+                        timer_speed: 7000;
+                        pause_on_hover:true;
+                        animation_speed:1300;
+                        navigation_arrows:false;
+                        bullets:false;">
+                <li>
+                <img src="../../../static/images/Norra 069.jpg" alt="slide 1" />
+             <div class="orbit-caption">
+            <pre style="line-height: 0.75em;">
+                Rjukan, Norra</pre>
+            </div>
+                </li>
+
+                <li class="active">
+                <img src="../../../static/images/namsos (12).JPG" alt="slide 2" />
+             <div class="orbit-caption">
+           <pre style="line-height: 0.75em;">
+                 Namsos, Norra</pre>
+            </div>
+                </li>
+                </ul>
+                </div>
+                </div>
+
+       <!--  End of Orbit slide panel -->
+
+                <div class="row">
+                    <div class="large-7 columns large-offset-3 qoute ">'Travel brings power and love back into your life' - Rumi
+               </div>
+                     </div>
+
+
+    <div class="row">
+        <div class="large-12 columns">
+
+            <div class="large-2 columns right">
+
+
+        <!-- Tag cloud -->
+{% load taggit_extras %}
+
+               {% get_taglist as tags %}
+
+<div class="blogpanel">{% for tag in tags %}
+  <a href="/category/{{ tag.slug }}" class="clickbutton">{{ tag }}({{tag.num_times}})</a>
+{% endfor %}
+</div>
+        <!-- End of Tag Cloud -->
+
+            </div>
+
+
+
+     {% block content %}
+
+      {% endblock %}
+
+
+      </div>
+    </div>
+
+
+         <!-- Footer -->
+     <footer class="row">
+    <div class="large-12 columns">
+        <div class="hrsmall"></div>
+        <div class="large-6 columns left">
+            <p> &#169; 2014 GlobalXplorer. All Rights reserved. </p>
+        </div>
+    </div>
+    </footer>
+
+
+
+
+ <script>
+  document.write('<script src=js/vendor/' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+    <script src="{{ STATIC_URL }}js/vendor/jquery.js"></script>
+
+    <script src="{{ STATIC_URL }}js/foundation/foundation.js"></script>
+    <script src="{{ STATIC_URL }}js/foundation/foundation.orbit.js"></script>
+ <script src="{{ STATIC_URL }}js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+   </body>
+</html>

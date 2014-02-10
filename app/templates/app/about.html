@@ -1,0 +1,59 @@
+{% extends "app/base.html" %}
+{% load taggit_extras %}
+
+<!-- Here we will open our hole and fill it with what ever we want.-->
+{% block content %}
+<!-- autoescape is a django tag which is helping with security.-->
+{% autoescape off %}
+
+
+    <div class="large-7 columns blogpanel left">
+    <div class="large-2 columns left"><a href="/"><img src="{{ STATIC_URL }}images/k.JPG" alt="Author"></a></div>
+
+   <p>
+       Traveler, writer, photographer, foodie, exCouchSurfer, BeWelcomer, HelperX, dreamer </p>
+
+   <p>I am from a small town in Estonia. I grew up reading travel literature and flipping
+       through hotels and restaurants brochures. While studying in university I started to work in bars,
+       restaurants and hotels, perfect places to meet travelers and hear their amazing and inspiring stories.
+       After graduating I packed my seven things and since then I am official backpacker.
+       My drawers are filled with full-written notebooks and photos have occupied my external hard drives.
+       In this blog I write about my favourite experiences, great food and interesting sights. Everything is
+       written from my perspective so everyone are free to agree or disagree. </p>
+
+        <br>
+
+        *  *  *
+
+    <p>
+        While following the blog you notice that I am currently nearby and you want something
+        interesting to share (local food, sights or festivals), please contact me trough the form below.
+    </p>
+    </div>
+
+
+  <!-- Message Form -->
+
+   <div class="large-4 columns large-offset-2 left">
+ {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action="/contact/" method="post">
+        <p>Subject: <input type="text" name="subject" value="{{ subject }}"></p>
+        <p>Your e-mail: <input type="text" name="email" value="{{ email }}"></p>
+        <p>Message: <textarea name="message">{{ message }}</textarea></p>
+        <input type="submit" value="Send">
+    </form>
+
+   </div>
+
+<!-- End of Message Form -->
+
+
+{% endautoescape %}
+{% endblock %}

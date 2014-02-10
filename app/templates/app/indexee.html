@@ -1,0 +1,23 @@
+{% extends "app/base.html" %}
+{% load taggit_extras %}
+
+<!-- Here we will open our hole and fill it with what ever we want.-->
+{% block content %}
+<!-- autoescape is a django tag which is helping with security.-->
+{% autoescape off %}
+
+
+
+        <!-- Posts, Left side -->
+        <div class="large-7 columns blogpanel left">
+        {% for post in postees %}
+            <h3>{{  post.title  }}</h3>
+         <p>{{ post.body }}</p>
+             <hr>
+    {% endfor %}
+        </div>
+        <!-- End of posts -->
+
+
+{% endautoescape %}
+{% endblock %}
