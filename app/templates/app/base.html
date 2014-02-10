@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <!-- STATIC_URL is a django shortcut.-->
    <link href="{{ STATIC_URL }}css/foundation.css" rel="stylesheet">
    <link href="{{ STATIC_URL }}css/normalize.css" rel="stylesheet">
@@ -88,16 +87,17 @@
 
        <!--  End of Orbit slide panel -->
 
-                <div class="row">
+                 <div class="row">
                     <div class="large-7 columns large-offset-3 qoute ">'Travel brings power and love back into your life' - Rumi
                </div>
                      </div>
 
 
+<div class="clickme right">Click here for Tags</div>
     <div class="row">
         <div class="large-12 columns">
 
-            <div class="large-2 columns right">
+            <div class="large-1 columns right">
 
 
         <!-- Tag cloud -->
@@ -105,10 +105,26 @@
 
                {% get_taglist as tags %}
 
-<div class="blogpanel">{% for tag in tags %}
+                 <!--Moving slide Jquery -->
+
+ <div class="tagpanel">{% for tag in tags %}
   <a href="/category/{{ tag.slug }}" class="clickbutton">{{ tag }}({{tag.num_times}})</a>
 {% endfor %}
 </div>
+
+
+ <script>
+
+     $( ".clickme" ).click(function() {
+  $( ".tagpanel" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+});
+ </script>
+
+ <!-- End of jquery -->
+
+
         <!-- End of Tag Cloud -->
 
             </div>
